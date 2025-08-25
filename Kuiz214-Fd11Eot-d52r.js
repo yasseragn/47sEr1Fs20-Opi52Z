@@ -1,4 +1,3 @@
-<script>
 // --- V8: Final Monetization & Engagement Script ---
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -172,4 +171,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
-</script>
