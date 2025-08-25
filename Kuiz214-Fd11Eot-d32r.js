@@ -2,7 +2,7 @@
 // --- V8: Final Monetization & Engagement Script ---
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Dynamic Quote Generator (FIXED & EXPANDED) ---
+    // --- 1. Dynamic Quote Generator ---
     const quotes = [
         { text: "العلم هو الترياق المضاد للتسمم بالجهل والخرافات.", author: "ابن سينا" },
         { text: "النجاح ليس نهاية، والفشل ليس قاتلاً: إنما الشجاعة لمواصلة المسير هي التي تحسب.", author: "ونستون تشرشل" },
@@ -117,13 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             setTimeout(() => {
                 if(parentPanel.style.maxHeight !== "0px"){
-                   parentPanel.style.maxHeight = parentPanel.scrollHeight + "px";
+                    parentPanel.style.maxHeight = parentPanel.scrollHeight + "px";
                 }
             }, 500);
         });
     });
     
-    // --- 5. Interstitial Ad Logic (New Trigger) ---
+    // --- 5. Interstitial Ad Logic ---
     const interstitial = document.getElementById('sp-interstitial-backdrop');
     const closeBtn = document.getElementById('sp-interstitial-close-btn');
     const timerDisplay = document.getElementById('sp-interstitial-timer');
@@ -160,18 +160,16 @@ document.addEventListener('DOMContentLoaded', function() {
             interstitial.style.display = 'none';
         });
     }
+
+    // --- 6. Site-Wide Progress Bar Script (Merged) ---
+    const siteProgressBar = document.getElementById('site-progress-bar');
+    if(siteProgressBar) {
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            siteProgressBar.style.width = progress + '%';
+        });
+    }
+
 });
 </script>
-
-<script>
-// --- Site-Wide Progress Bar Script ---
-const siteProgressBar = document.getElementById('site-progress-bar');
-if(siteProgressBar) {
-    window.addEventListener('scroll', () => {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (window.pageYOffset / totalHeight) * 100;
-        siteProgressBar.style.width = progress + '%';
-    });
-}
-</script>
-
